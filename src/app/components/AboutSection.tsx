@@ -33,13 +33,17 @@ const TAB_DATA: TabItem[] = [
     content: (
       <div className="space-y-6">
         <div>
-          <h3 className="font-semibold text-lg md:text-xl">Codebase Technologies Limited</h3>
+          <h3 className="font-semibold text-lg md:text-xl">
+            Codebase Technologies Limited
+          </h3>
           <ul className="list-disc pl-6 text-base md:text-base">
             <li>Full-Stack Web Development</li>
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold text-lg md:text-xl">University of Benin, Benin City</h3>
+          <h3 className="font-semibold text-lg md:text-xl">
+            University of Benin, Benin City
+          </h3>
           <ul className="list-disc pl-6 text-base md:text-base">
             <li>Bachelor of Engineering (Structural)</li>
           </ul>
@@ -63,9 +67,9 @@ const AboutSection: React.FC = () => {
 
   return (
     <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
+      <div className="container mx-auto max-w-screen-lg md:grid md:grid-cols-2 gap-8 items-center py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
         {/* Portrait Hero Image with blurred edges */}
-        <div className="relative w-[400px] h-[600px]">
+        <div className="relative w-full max-w-[350px] md:max-w-[400px] mx-auto aspect-[2/3]">
           <Image
             src="/images/Hero.png"
             alt="About me"
@@ -81,16 +85,18 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* About content */}
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
+        <div className="mt-8 md:mt-0 text-left flex flex-col h-full">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            About Me
+          </h2>
+          <p className="text-base sm:text-lg lg:text-xl">
             I am a Frontend Web Developer and Freelance Software Engineer. I
             craft scalable and efficient web and mobile applications using
             React.js, React Native, and modern JavaScript technologies. My focus
             is on delivering high-performance, visually engaging, and
             user-centric digital experiences.
           </p>
-          <div className="flex flex-row justify-start mt-8">
+          <div className="flex flex-row justify-start mt-8 gap-4">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}

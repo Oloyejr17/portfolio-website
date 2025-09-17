@@ -16,24 +16,21 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#0d0d0d] border border-[#33353F]">
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#0d0d0d] border-b border-[#33353F]">
+      <div className="flex container max-w-screen-xl mx-auto px-4 py-3 items-center justify-between">
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center bg-[#1a1a1a] p-1 rounded"
-        >
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="Logo"
-            width={50} // adjust size to fit navbar
-            height={50}
+            width={40}
+            height={40}
             className="object-contain"
           />
         </Link>
 
         {/* Mobile menu button */}
-        <div className="mobile-menu block md:hidden">
+        <div className="md:hidden">
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
@@ -52,8 +49,8 @@ const Navbar = () => {
         </div>
 
         {/* Desktop menu */}
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+        <div className="hidden md:block">
+          <ul className="flex space-x-8">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <NavLink href={link.path} title={link.title} />
