@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
               </span>
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1s6qPaPFXUEJXrDnP_OiIzqsO5wHTbIlc/view"
+              href="/cv/Azubike_resume.pdf"
               target="_blank"
               className="px-1 py-1 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 text-white w-full sm:w-auto"
             >

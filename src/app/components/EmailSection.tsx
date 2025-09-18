@@ -64,7 +64,10 @@ const EmailSection: React.FC = () => {
           <Link href="https://github.com/oloyejr17" target="_blank">
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="https://www.linkedin.com/in/azubike-oloye-41b740382" target="_blank">
+          <Link
+            href="https://www.linkedin.com/in/azubike-oloye-41b740382"
+            target="_blank"
+          >
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
@@ -124,11 +127,15 @@ const EmailSection: React.FC = () => {
                 placeholder="Let's talk about..."
               />
             </div>
+
+            {/* Updated button with same hover effect */}
             <button
               type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              className="px-1 py-1 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 text-white w-full sm:w-auto"
             >
-              Send Message
+              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+                Send Message
+              </span>
             </button>
           </form>
         )}

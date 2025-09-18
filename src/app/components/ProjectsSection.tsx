@@ -12,7 +12,6 @@ const projectsData = [
     image: "/images/projects/dashboard1.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/Oloyejr17/nextjs-dashboard-with-extensive-features.git",
-    previewUrl: "/",
   },
   {
     id: 2,
@@ -20,8 +19,7 @@ const projectsData = [
     description: "Secure banking app built with Next.js and TypeScript.",
     image: "/images/projects/bankapp.jpg",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/Oloyejr17/Banking-web-app-with-nextjs-typescript.git",
   },
   {
     id: 3,
@@ -29,8 +27,7 @@ const projectsData = [
     description: "A responsive e-commerce platform with cart & checkout.",
     image: "/images/projects/ecommerce.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/Oloyejr17/shopwest-e-commerce-web-app.git",
   },
   {
     id: 4,
@@ -38,8 +35,7 @@ const projectsData = [
     description: "Cross-platform food delivery app with live tracking.",
     image: "/images/projects/foodapp.png",
     tag: ["All", "Mobile"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "/", // Not ready yet -> shows "Coming Soon"
   },
 ];
 
