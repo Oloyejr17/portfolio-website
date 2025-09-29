@@ -16,7 +16,7 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#0d0d0d] border-b border-[#33353F]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d0d] border-b border-[#33353F]">
       <div className="flex container max-w-screen-xl mx-auto px-4 py-3 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -61,7 +61,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile overlay menu */}
-      {navbarOpen && <MenuOverlay links={navLinks} />}
+      {navbarOpen && <MenuOverlay links={navLinks} onClose={() => setNavbarOpen(false)} />}
     </nav>
   );
 };
