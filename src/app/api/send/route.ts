@@ -1,32 +1,37 @@
+// src/app/api/send/route.ts
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import sgMail from "@sendgrid/mail";
 import { EmailTemplate } from "@/app/components/EmailTemplate";
 
-const resend = new Resend(process.env.RESEND_API_KEY as string);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
 const fromEmail = process.env.FROM_EMAIL as string;
 
 export async function POST(req: Request) {
   try {
-    console.log("Using API Key:", process.env.RESEND_API_KEY ? "✅ Loaded" : "❌ Missing");
-    console.log("From Email:", fromEmail);
-
-    const { email, subject, message } = (await req.json()) as {
+    const { name, email, subject, message } = (await req.json()) as {
+      name: string;
       email: string;
       subject: string;
       message: string;
     };
 
-    const data = await resend.emails.send({
-      from: fromEmail,
-      to: [fromEmail, email],
-      subject,
-      react: EmailTemplate({ subject, message }),
+    const htmlContent = EmailTemplate({ name, email, subject, message });
+
+    await sgMail.send({
+      to: fromEmail,       // send to yourself
+      from: fromEmail,     // verified sender
+      replyTo: email,      // replies go to the visitor
+      subject: `[Portfolio] ${subject}`,
+      html: htmlContent,
     });
 
-    return NextResponse.json(data);
-  } catch (error) {
+    return NextResponse.json({ success: true });
+  } catch (error: any) {
     console.error("Email send error:", error);
-    return NextResponse.json({ error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: error.message || "Internal error" },
+      { status: 500 }
+    );
   }
 }
 

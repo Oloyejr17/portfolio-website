@@ -3,7 +3,6 @@ import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
-
 const projectsData = [
   {
     id: 1,
@@ -31,12 +30,12 @@ const projectsData = [
   },
   {
     id: 4,
-    title: "Food Ordering App",
-    description: "Cross-platform food delivery app with live tracking.",
-    image: "/images/projects/foodapp.png",
+    title: "An Airbnb website clone",
+    description: "A Next.js Airbnb-inspired web app for browsing and exploring property listings with a clean, responsive UI.",
+    image: "/images/projects/listing.png",
     tag: ["All", "Mobile"],
-    gitUrl: "/", // Not ready yet -> shows "Coming Soon"
-  },
+    gitUrl: "https://github.com/Oloyejr17/my-airbnb-website.git",
+  } // <-- missing closing brace added here
 ];
 
 const ProjectsSection: React.FC = () => {

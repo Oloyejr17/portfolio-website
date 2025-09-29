@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface FormData {
+  name: string;
   email: string;
   subject: string;
   message: string;
@@ -19,6 +20,7 @@ const EmailSection: React.FC = () => {
 
     const target = e.currentTarget;
     const data: FormData = {
+      name: (target.elements.namedItem("name") as HTMLInputElement).value,
       email: (target.elements.namedItem("email") as HTMLInputElement).value,
       subject: (target.elements.namedItem("subject") as HTMLInputElement).value,
       message: (target.elements.namedItem("message") as HTMLTextAreaElement)
@@ -81,6 +83,24 @@ const EmailSection: React.FC = () => {
           </p>
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>
+            {/* Name field */}
+            <div className="mb-6">
+              <label
+                htmlFor="name"
+                className="text-white block mb-2 text-sm font-medium"
+              >
+                Your name
+              </label>
+              <input
+                name="name"
+                type="text"
+                id="name"
+                required
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                placeholder="Jacob"
+              />
+            </div>
+
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -123,12 +143,13 @@ const EmailSection: React.FC = () => {
               <textarea
                 name="message"
                 id="message"
+                required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
             </div>
 
-            {/* Updated button with same hover effect */}
+            {/* Send button */}
             <button
               type="submit"
               className="px-1 py-1 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 text-white w-full sm:w-auto"
