@@ -26,10 +26,15 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Email send error:", error);
+
+    // Type guard to safely access message
+    const errorMessage =
+      error instanceof Error ? error.message : "Internal error";
+
     return NextResponse.json(
-      { success: false, error: error.message || "Internal error" },
+      { success: false, error: errorMessage },
       { status: 500 }
     );
   }
